@@ -3,6 +3,10 @@
 #include <stdlib.h>
 #include "bmp.h"
 
+#define TRIPLESIZE sizeof(RGBTRIPLE)
+#define BFSIZE sizeof(BITMAPFILEHEADER)
+#define BISIZE sizeof(BITMAPINFOHEADER)
+
 // structs
 typedef struct {
 	int top;
@@ -18,10 +22,10 @@ typedef struct {
 } TRIPLESUM;
 
 // functions
-void readBMP(char *path);
-void writeBMP(char *path, BOUNDS *b);
-BOUNDS findBounds();
 TRIPLESUM addTriple(TRIPLESUM *a, RGBTRIPLE *b);
 TRIPLESUM findAvg(TRIPLESUM *t, int n);
+BOUNDS findBounds();
 void initTriple(TRIPLESUM *t);
 bool isWhite(TRIPLESUM *t);
+void readBMP(char *path);
+void writeBMP(char *path, BOUNDS *b);
